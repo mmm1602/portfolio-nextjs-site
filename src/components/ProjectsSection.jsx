@@ -31,13 +31,13 @@ const projects = [
     title: 'Engine Simulator App',
     description: 'Engine simulation desktop app using Swift and C++.',
     link: 'https://mmm1602.github.io/engine-simulator/',
-    modelPath: ''
+    modelPath: '/models/engine.glb'
   },
   {
     title: 'Instant Messaging App',
     description: 'Instant messaging solution using WPF and C#.',
     link: 'https://github.com/mmm1602/Rooms-ChattingApp',
-    modelPath: ''
+    modelPath: '/models/iphone.glb'
   },
 ];
 
