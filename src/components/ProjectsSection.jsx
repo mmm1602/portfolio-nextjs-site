@@ -27,6 +27,18 @@ const projects = [
     link: 'https://mmm1602.github.io/Drone-Website/',
     modelPath: '/models/drone.glb'
   },
+  {
+    title: 'Engine Simulator App',
+    description: 'Responsive site for drone projects.',
+    link: 'https://mmm1602.github.io/engine-simulator/',
+    modelPath: '/models/engine.glb'
+  },
+  {
+    title: 'Instant Messaging App',
+    description: 'A small project for an instant messaging solution made using wpf and c#.',
+    link: 'https://github.com/mmm1602/Rooms-ChattingApp',
+    modelPath: '/models/iphone.glb'
+  },
 ];
 
 function ProjectModel({ path, scrollProgress }) {
@@ -73,6 +85,12 @@ export default function ProjectsSection() {
     <section className="relative bg-black text-white">
       {/* Abstract Background Shapes */}
       <div className="absolute inset-0 z-0">
+        <div className="absolute w-72 h-72 bg-purple-600 opacity-20 rounded-full top-10 left-10 blur-3xl animate-pulse" />
+        <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full bottom-20 right-32 blur-2xl animate-spin-slow" />
+        <div className="absolute w-80 h-80 bg-pink-500 opacity-20 rounded-full top-50% left-1/3 blur-2xl animate-bounce" />
+        <div className="absolute w-72 h-72 bg-purple-600 opacity-20 rounded-full top-10 left-10 blur-3xl animate-pulse" />
+        <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full bottom-20 right-32 blur-2xl animate-spin-slow" />
+        <div className="absolute w-80 h-80 bg-pink-500 opacity-20 rounded-full top-1/2 left-1/3 blur-2xl animate-bounce" />
         <div className="absolute w-72 h-72 bg-purple-600 opacity-20 rounded-full top-10 left-10 blur-3xl animate-pulse" />
         <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full bottom-20 right-32 blur-2xl animate-spin-slow" />
         <div className="absolute w-80 h-80 bg-pink-500 opacity-20 rounded-full top-1/2 left-1/3 blur-2xl animate-bounce" />

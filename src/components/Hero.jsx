@@ -18,9 +18,9 @@ export default function Hero() {
 
       {/* 🔮 Background Shapes */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute w-96 h-96 bg-purple-600 opacity-20 rounded-full top-0 left-0 blur-3xl animate-pulse" />
-        <div className="absolute w-[500px] h-[500px] bg-blue-500 opacity-20 rounded-full bottom-0 right-0 blur-2xl animate-spin-slow" />
-        <div className="absolute w-96 h-96 bg-pink-500 opacity-20 rounded-full top-1/2 left-1/3 blur-2xl animate-bounce" />
+        <div className="absolute w-96 h-96 bg-purple-600 opacity-10 rounded-full top-0 left-0 blur-3xl animate-spin-slow" />
+        <div className="absolute w-[500px] h-[500px] bg-blue-500 opacity-20 rounded-full bottom-0 right-0 blur-3xl animate-spin-slow" />
+        <div className="absolute w-96 h-96 bg-pink-500 opacity-10 rounded-full top-1/2 left-1/3 blur-3xl animate-spin-slow" />
       </div>
 
       {/* 💡 Foreground Content */}
