@@ -1,13 +1,13 @@
 'use client';
 import { motion, useScroll, useTransform } from "framer-motion";
 import * as THREE from 'three';
-import { useFrame } from '@react-three/fiber';
-import { Canvas } from '@react-three/fiber';
+import { useFrame, Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { useEffect, useRef } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import Footer from '@/components/Footer';
 
+// 🚀 Your project list
 const projects = [
   {
     title: 'Graphic Works Website',
@@ -29,18 +29,19 @@ const projects = [
   },
   {
     title: 'Engine Simulator App',
-    description: 'Responsive site for drone projects.',
+    description: 'Engine simulation desktop app using Swift and C++.',
     link: 'https://mmm1602.github.io/engine-simulator/',
     modelPath: ''
   },
   {
     title: 'Instant Messaging App',
-    description: 'A small project for an instant messaging solution made using wpf and c#.',
+    description: 'Instant messaging solution using WPF and C#.',
     link: 'https://github.com/mmm1602/Rooms-ChattingApp',
     modelPath: ''
   },
 ];
 
+// ✅ 3D model loader (only called for valid paths)
 function ProjectModel({ path, scrollProgress }) {
   const gltf = useGLTF(path);
   const groupRef = useRef();
@@ -55,8 +56,8 @@ function ProjectModel({ path, scrollProgress }) {
   const maxDimension = Math.max(size.x, size.y, size.z);
   const scaleFactor = 10 / maxDimension;
 
-  const rotationY = useTransform(scrollProgress, [0.5, 1], [0, Math.PI * 2.4]);
-  const rotationX = useTransform(scrollProgress, [0.5, 1], [.5, Math.PI / 9.4]);
+  const rotationY = useTransform(scrollProgress, [0.5, 1], [0.5, Math.PI * 2.4]);
+  const rotationX = useTransform(scrollProgress, [0.5, 1], [0.5, Math.PI / 9.4]);
   const dynamicScale = useTransform(scrollProgress, [0.5, 1], [scaleFactor * 0.9, scaleFactor * 1.5]);
 
   useFrame(() => {
@@ -74,23 +75,29 @@ function ProjectModel({ path, scrollProgress }) {
   );
 }
 
+// 🧱 Simple placeholder box for missing models
+function PlaceholderModel() {
+  return (
+    <mesh>
+      <boxGeometry args={[3, 3, 3]} />
+      <meshStandardMaterial color="gray" />
+    </mesh>
+  );
+}
+
 export default function ProjectsSection() {
   useEffect(() => {
     projects.forEach(project => {
-      new GLTFLoader().load(project.modelPath, () => {});
+      if (project.modelPath && project.modelPath.endsWith('.glb')) {
+        new GLTFLoader().load(project.modelPath, () => {});
+      }
     });
   }, []);
 
   return (
     <section className="relative bg-black text-white">
-      {/* Abstract Background Shapes */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute w-72 h-72 bg-purple-600 opacity-20 rounded-full top-10 left-10 blur-3xl animate-pulse" />
-        <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full bottom-20 right-32 blur-2xl animate-spin-slow" />
-        <div className="absolute w-80 h-80 bg-pink-500 opacity-20 rounded-full top-50% left-1/3 blur-2xl animate-bounce" />
-        <div className="absolute w-72 h-72 bg-purple-600 opacity-20 rounded-full top-10 left-10 blur-3xl animate-pulse" />
-        <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full bottom-20 right-32 blur-2xl animate-spin-slow" />
-        <div className="absolute w-80 h-80 bg-pink-500 opacity-20 rounded-full top-1/2 left-1/3 blur-2xl animate-bounce" />
+      {/* 🎨 Abstract background blobs */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute w-72 h-72 bg-purple-600 opacity-20 rounded-full top-10 left-10 blur-3xl animate-pulse" />
         <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full bottom-20 right-32 blur-2xl animate-spin-slow" />
         <div className="absolute w-80 h-80 bg-pink-500 opacity-20 rounded-full top-1/2 left-1/3 blur-2xl animate-bounce" />
@@ -103,11 +110,13 @@ export default function ProjectsSection() {
           offset: ["start start", "end end"]
         });
 
+        const hasValidModel = project.modelPath && project.modelPath.endsWith('.glb');
+
         return (
           <motion.div
             key={index}
             ref={projectRef}
-            className="h-[150vh] z-10 w-full flex flex-col md:flex-row justify-center items-center snap-start relative p-4"
+            className="h-[150vh] z-10 w-full flex flex-col md:flex-row justify-center items-center snap-start relative pt-0 p-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -119,7 +128,12 @@ export default function ProjectsSection() {
                   <ambientLight intensity={0.4} />
                   <directionalLight position={[10, 10, 10]} intensity={1.5} castShadow />
                   <pointLight position={[-10, -10, -10]} intensity={1} />
-                  <ProjectModel path={project.modelPath} scrollProgress={scrollYProgress} />
+                  {/*<OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.2} />*/}
+                  {hasValidModel ? (
+                    <ProjectModel path={project.modelPath} scrollProgress={scrollYProgress} />
+                  ) : (
+                    <PlaceholderModel />
+                  )}
                 </Canvas>
               </div>
 
