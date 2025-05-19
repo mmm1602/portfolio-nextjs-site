@@ -13,12 +13,12 @@ export default function FluidBackground() {
         IMMEDIATE: true,                  // start immediately
         SIM_RESOLUTION: 256,
         DYE_RESOLUTION: 512,
-        DENSITY_DISSIPATION: 0.96,       // slower fade
-        VELOCITY_DISSIPATION: 0.95,
-        PRESSURE: 0.8,
+        DENSITY_DISSIPATION: 0.01,       // slower fade
+        VELOCITY_DISSIPATION: 0,
+        PRESSURE: 0.1,
         PRESSURE_ITERATIONS: 25,
-        CURL: 15,                         // less turbulence
-        SPLAT_RADIUS: 0.02,              // bigger splashes
+        CURL: 0,                         // less turbulence
+        SPLAT_RADIUS: 0.5,              // bigger splashes
         SHADING: true,
         COLOR_PALETTE: [
           '#7c3aed', // violet-600
@@ -41,8 +41,8 @@ export default function FluidBackground() {
         pointerEvents: 'auto',
         width: '100%',
         height: '100%',
-        opacity: 0.4, // subtle background feel
-        mixBlendMode: 'screen', // adds glow-like overlay
+        opacity: 0.3, // subtle background feel
+        mixBlendMode: 'normal', // adds glow-like overlay
       }}
     />
   );
