@@ -120,7 +120,6 @@ export default function ProjectsSection() {
                   <directionalLight position={[10, 10, 10]} intensity={1.5} castShadow />
                   <pointLight position={[-10, -10, -10]} intensity={1} />
                   <ProjectModel path={project.modelPath} scrollProgress={scrollYProgress} />
-                  <OrbitControls enableZoom={false} autoRotate={false} />
                 </Canvas>
               </div>
 
