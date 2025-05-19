@@ -38,7 +38,7 @@ export default function FluidBackground() {
       ref={canvasRef}
       className="absolute inset-0 w-full h-full z-0"
       style={{
-        pointerEvents: 'auto',
+        pointerEvents: 'none',
         width: '100%',
         height: '100%',
         opacity: 0.3, // subtle background feel
