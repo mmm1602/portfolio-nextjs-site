@@ -1,44 +1,30 @@
-import Footer from '@/components/Footer';
-import Hero from '@/components/Hero';
-import Link from 'next/link';
+// /src/app/page.jsx
+"use client";
 
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import ProjectsSection from '@/components/ProjectsSection';
+import SkillsSection from '@/components/SkillsSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import ContactSection from '@/components/ContactSection';
+
+/**
+ * The main page of the portfolio.
+ * It aggregates all the different sections of the portfolio.
+ */
 export default function Home() {
   return (
-    <main className="flex flex-col bg-black text-white">
-
-
-      <Hero />
-
-      {/* --- Summary Section --- */}
-      <section className="w-full max-w-7xl py-12 px-12 mx-auto space-y-8">
-
-        <div>
-          <h2 className="text-3xl font-bold mb-2">About Me</h2>
-          <p className="text-lg text-gray-300">
-            Learn about my journey as a front-end developer, my skills, and what drives my passion for creative web design and interactive experiences.
-          </p>
-          <Link href="/about" className="underline text-blue-400 hover:text-blue-300">Read more →</Link>
-        </div>
-
-        <div>
-          <h2 className="text-3xl font-bold mb-2">Projects</h2>
-          <p className="text-lg text-gray-300">
-            Explore my latest projects where I blend development and design — including interactive 3D sites, responsive web apps, and creative experiments.
-          </p>
-          <Link href="/projects" className="underline text-blue-400 hover:text-blue-300">View projects →</Link>
-        </div>
-
-        <div>
-          <h2 className="text-3xl font-bold mb-2">Contact</h2>
-          <p className="text-lg text-gray-300">
-            Interested in working together or have a cool idea? Reach out and let’s make something amazing.
-          </p>
-          <Link href="/contact" className="underline text-blue-400 hover:text-blue-300">Get in touch →</Link>
-        </div>
-
-      </section>
-
-      <Footer />
+    <main className="relative min-h-screen">
+      {/* Background decorative elements */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_18%,rgba(9,105,218,0.16),transparent_34%),radial-gradient(circle_at_80%_2%,rgba(47,129,247,0.12),transparent_30%)] dark:bg-[radial-gradient(circle_at_12%_18%,rgba(47,129,247,0.2),transparent_34%),radial-gradient(circle_at_80%_2%,rgba(88,166,255,0.14),transparent_30%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(101,109,118,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(101,109,118,0.12)_1px,transparent_1px)] bg-[size:36px_36px] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_92%)]" />
+       
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ExperienceSection />
+      <ContactSection />
     </main>
   );
 }

@@ -1,39 +1,47 @@
+// /src/components/AboutSection.jsx
 'use client';
-import { motion } from "framer-motion";
-import Footer from '@/components/Footer';
+import { motion } from 'framer-motion';
 
+/**
+ * Renders the about section of the portfolio.
+ * This component provides a summary of the user's background, skills, and career highlights.
+ */
 export default function AboutSection() {
   return (
-    <section className="relative h-screen w-full bg-black text-white overflow-hidden">
-      {/* Abstract Background Shapes */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute w-72 h-72 bg-purple-600 opacity-20 rounded-full top-10 left-10 blur-3xl animate-pulse" />
-        <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full bottom-20 right-32 blur-2xl animate-spin-slow" />
-        <div className="absolute w-80 h-80 bg-pink-500 opacity-20 rounded-full top-1/2 left-1/3 blur-2xl animate-bounce" />
-      </div>
+    <section id="about" className="sticky mx-auto flex min-h-screen w-full max-w-6xl items-center justify-center px-6 py-12 text-center md:pl-36 md:pr-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.6 }}
+        className="w-full max-w-4xl rounded-3xl border border-light-border/80 bg-light-background/75 px-8 py-12 shadow-[0_12px_36px_rgba(2,6,23,0.08)] backdrop-blur dark:border-dark-border/80 dark:bg-dark-background/70"
+      >
+        <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-light-accent dark:text-dark-accent">About Me</p>
+        <h2 className="font-display mb-6 text-4xl font-bold tracking-tight text-light-text dark:text-dark-text md:text-5xl">
+          Engineering Mindset,<br />Systems-First Execution.
+        </h2>
+        <p className="mx-auto mb-5 max-w-3xl text-base leading-relaxed text-light-muted-text dark:text-dark-muted-text md:text-lg">
+          I define the problem first, map constraints early, then iterate until performance is reliable under practical conditions. My strongest work sits at the intersection of propulsion, controls, and subsystem integration.
+        </p>
+        <p className="mx-auto max-w-3xl text-base leading-relaxed text-light-muted-text dark:text-dark-muted-text md:text-lg">
+          I prefer field-tested behavior over perfect simulation visuals, and I optimize for robust systems that remain stable when assumptions break.
+        </p>
 
-      {/* Foreground Content */}
-      <div className="relative z-10 h-full w-full flex flex-col justify-center items-center text-center px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-5xl md:text-7xl font-bold mb-6"
-        >
-          About Me
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-xl md:text-2xl max-w-3xl"
-        >
-          I'm a front-end developer and aerospace engineering student passionate about building sleek UIs and interactive experiences. I love combining code and creativity to bring ideas to life.
-        </motion.p>
-      </div>
-
-      <Footer />
+        <div className="mt-8 grid w-full gap-3 text-left md:grid-cols-3">
+          <div className="rounded-xl border border-light-border/80 bg-light-background/70 p-4 dark:border-dark-border/70 dark:bg-dark-background/60">
+            <p className="text-xs uppercase tracking-[0.14em] text-light-accent dark:text-dark-accent">Focus</p>
+            <p className="mt-1 text-sm text-light-text dark:text-dark-text">Propulsion + Autonomy</p>
+          </div>
+          <div className="rounded-xl border border-light-border/80 bg-light-background/70 p-4 dark:border-dark-border/70 dark:bg-dark-background/60">
+            <p className="text-xs uppercase tracking-[0.14em] text-light-accent dark:text-dark-accent">Approach</p>
+            <p className="mt-1 text-sm text-light-text dark:text-dark-text">Test, iterate, harden</p>
+          </div>
+          <div className="rounded-xl border border-light-border/80 bg-light-background/70 p-4 dark:border-dark-border/70 dark:bg-dark-background/60">
+            <p className="text-xs uppercase tracking-[0.14em] text-light-accent dark:text-dark-accent">Goal</p>
+            <p className="mt-1 text-sm text-light-text dark:text-dark-text">Build reliable systems</p>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

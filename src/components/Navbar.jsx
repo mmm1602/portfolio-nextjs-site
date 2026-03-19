@@ -1,43 +1,65 @@
+// /src/components/Navbar.jsx
 'use client';
-import { useState } from 'react';
+import React from 'react';
+import ThemeToggle from '@/components/ThemeToggle';
 
+/**
+ * Renders the navigation bar for the portfolio.
+ * It includes navigation links and a theme toggle button.
+ */
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  // Navigation items with their corresponding links and labels
+  const navItems = [
+    { href: '#hero', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
+    //{ href: '#flagship', label: 'Flagship' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#experience', label: 'Timeline' },
+    { href: '#contact', label: 'Contact' },
+  ];
+
+  // Track active section for scrollspy
+  const [activeSection, setActiveSection] = React.useState(navItems[0].href);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const offsets = navItems.map((item) => {
+        const el = document.querySelector(item.href);
+        if (!el) return { href: item.href, top: Infinity };
+        const rect = el.getBoundingClientRect();
+        return { href: item.href, top: rect.top };
+      });
+      const visible = offsets.filter((o) => o.top <= 120);
+      if (visible.length > 0) {
+        setActiveSection(visible[visible.length - 1].href);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 bg-gradient-to-b from-black/100 to-black/50 backdrop-blur-sm shadow-md border-b border-white/10 font-sans">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="text-white font-bold text-xl tracking-tight">
-          Miguel Angel<br /> Hurtado Gomez
+    <nav className="fixed left-0 top-0 z-50 h-screen w-32 px-4">
+      <div className="pointer-events-none absolute inset-0" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-px bg-white/15" />
+      <div className="relative flex h-full flex-col items-start justify-center gap-6">
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className={`relative pl-2 text-sm font-semibold tracking-wide transition-colors ${activeSection === item.href ? 'text-light-accent dark:text-dark-accent' : 'text-black/70 dark:text-white/70'} hover:text-light-accent dark:hover:text-dark-accent`}
+            style={{ background: 'none', border: 'none' }}
+          >
+            <span className={`absolute left-0 top-1/2 h-4 w-[2px] -translate-y-1/2 rounded-full transition-opacity ${activeSection === item.href ? 'bg-light-accent opacity-100 dark:bg-dark-accent' : 'bg-transparent opacity-0'}`} />
+            {item.label}
+          </a>
+        ))}
+        <div className="mt-8">
+          <ThemeToggle />
         </div>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 text-xl text-white">
-          <a href="/" className="hover:text-blue-400 transition">Home</a>
-          <a href="/projects" className="hover:text-blue-400 transition">Projects</a>
-          <a href="/about" className="hover:text-blue-400 transition">About</a>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-white focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2"
-               viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
       </div>
-
-      {/* Mobile Menu (only visible when open) */}
-      {menuOpen && (
-        <div className="md:hidden mt-4 flex flex-col items-start space-y-4 px-6 text-white text-lg">
-          <a href="/" className="hover:text-blue-400 transition">Home</a>
-          <a href="/projects" className="hover:text-blue-400 transition">Projects</a>
-          <a href="/about" className="hover:text-blue-400 transition">About</a>
-        </div>
-      )}
     </nav>
   );
 }
