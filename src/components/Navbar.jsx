@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-px bg-white/15" />
       <div className="relative flex h-full flex-col items-start justify-center gap-6">
         {navItems.map((item) => (
-          <a
+          <a 
             key={item.href}
             href={item.href}
             className={`relative pl-2 text-sm font-semibold tracking-wide transition-colors ${activeSection === item.href ? 'text-light-accent dark:text-dark-accent' : 'text-black/70 dark:text-white/70'} hover:text-light-accent dark:hover:text-dark-accent`}
