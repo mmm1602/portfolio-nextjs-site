@@ -1,6 +1,6 @@
 // /src/components/AboutSection.jsx
 'use client';
-import { motion } from 'framer-motion';
+import StickySection from '@/components/StickySection';
 
 /**
  * Renders the about section of the portfolio.
@@ -8,16 +8,10 @@ import { motion } from 'framer-motion';
  */
 export default function AboutSection() {
   return (
-    <section id="about" className="sticky mx-auto flex min-h-screen w-full max-w-6xl items-center justify-center px-6 py-12 text-center md:pl-36 md:pr-10">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-4xl rounded-3xl border border-light-border/80 bg-light-background/75 px-8 py-12 shadow-[0_12px_36px_rgba(2,6,23,0.08)] backdrop-blur dark:border-dark-border/80 dark:bg-dark-background/70"
-      >
-        <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-light-accent dark:text-dark-accent">About Me</p>
-        <h2 className="font-display mb-6 text-4xl font-bold tracking-tight text-light-text dark:text-dark-text md:text-5xl">
+    <StickySection id="about" className="portfolio-section justify-center text-center">
+      <div className="section-panel">
+        <p className="section-label">About Me</p>
+        <h2 className="section-title mb-6">
           Engineering Mindset,<br />Systems-First Execution.
         </h2>
         <p className="mx-auto mb-5 max-w-3xl text-base leading-relaxed text-light-muted-text dark:text-dark-muted-text md:text-lg">
@@ -41,7 +35,7 @@ export default function AboutSection() {
             <p className="mt-1 text-sm text-light-text dark:text-dark-text">Build reliable systems</p>
           </div>
         </div>
-      </motion.div>
-    </section>
+      </div>
+    </StickySection>
   );
 }

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5749202f-3459-41c6-9d96-72649f561e0c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AboutSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AboutSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContactSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContactSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ExperienceSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ExperienceSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeroSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeroSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProjectsSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProjectsSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SkillsSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SkillsSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ThemeToggle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ThemeToggle.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/projects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mmm1602&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mmm1602/portfolio-nextjs-site.git&quot;,
+    &quot;accountId&quot;: &quot;d025b1b6-fe8b-45ab-bd64-7f5d2feda218&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.000014270397655" />
+      <entry key="S2" value="1.246869187713014" />
+      <entry key="S5" value="5.395089744807541" />
+      <entry key="S10" value="18.97578658538804" />
+      <entry key="S30" value="77.4693178398056" />
+      <entry key="S60" value="140.77499247280355" />
+      <entry key="M2" value="205.99789008378232" />
+      <entry key="M5" value="314.8102111672823" />
+      <entry key="M10" value="484.236869882287" />
+      <entry key="M15" value="619.1113441140726" />
+      <entry key="M30" value="860.9918985318449" />
+      <entry key="H1" value="1059.2023715296032" />
+      <entry key="H2" value="1190.561526851687" />
+      <entry key="H4" value="1267.00006098435" />
+      <entry key="D1" value="1337.1874208182583" />
+      <entry key="W1" value="1349.8673733132437" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="5.145603884639617E-215" />
+      <entry key="S10" value="7.173286474580044E-108" />
+      <entry key="S30" value="1.928588047738004E-36" />
+      <entry key="S60" value="1.3893289186974252E-18" />
+      <entry key="M2" value="1.202796222922794E-9" />
+      <entry key="M5" value="3.2507291548675605E-4" />
+      <entry key="M10" value="0.023916786126146467" />
+      <entry key="M15" value="0.10293963213176217" />
+      <entry key="M30" value="0.4500332449337077" />
+      <entry key="H1" value="0.9467469352489163" />
+      <entry key="H2" value="1.37532481672009" />
+      <entry key="H4" value="1.6582916646143662" />
+      <entry key="D1" value="1.9384767788551862" />
+      <entry key="W1" value="1.9910919568556125" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9012504626108302" />
+      <entry key="MS500" value="0.9794344731755461" />
+      <entry key="S2" value="1.2412894121392384" />
+      <entry key="S5" value="5.390340549831653" />
+      <entry key="S10" value="18.969344469616335" />
+      <entry key="S30" value="77.4612389058089" />
+      <entry key="S60" value="140.76770941252474" />
+      <entry key="M2" value="205.99257119504153" />
+      <entry key="M5" value="314.8072583119421" />
+      <entry key="M10" value="484.2580805981037" />
+      <entry key="M15" value="619.2117822269187" />
+      <entry key="M30" value="861.439894157635" />
+      <entry key="H1" value="1060.147701403672" />
+      <entry key="H2" value="1191.935994000108" />
+      <entry key="H4" value="1268.65787754747" />
+      <entry key="D1" value="1339.125811043036" />
+      <entry key="W1" value="1351.8584527109506" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3KhTnZzCtl648qH4g8iklEWXegw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <EXTENSION ID="com.intellij.lang.javascript.buildTools.npm.rc.StartBrowserRunConfigurationExtension">
+        <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" url="http://localhost:3000" />
+      </EXTENSION>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Next.js: debug client-side" />
+      <item itemvalue="npm.Next.js: server-side" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.10968.77" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5749202f-3459-41c6-9d96-72649f561e0c" name="Changes" comment="" />
+      <created>1792008968944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792008968944</updated>
+      <workItem from="1792008970191" duration="122000" />
+      <workItem from="1792009106779" duration="80000" />
+      <workItem from="1792009260340" duration="2045000" />
+      <workItem from="1792772020161" duration="4454000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

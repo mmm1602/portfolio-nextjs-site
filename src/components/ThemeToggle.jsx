@@ -1,40 +1,31 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const [dark, setDark] = useState(true);
+  const { resolvedTheme, setTheme } = useTheme();
+  const dark = resolvedTheme === 'dark';
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldUseDark = saved ? saved === 'dark' : prefersDark;
-
-    document.documentElement.classList.toggle('dark', shouldUseDark);
-    setDark(shouldUseDark);
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
-    const next = !dark;
-    document.documentElement.classList.toggle('dark', next);
-    localStorage.setItem('theme', next ? 'dark' : 'light');
-    setDark(next);
+    setTheme(dark ? 'light' : 'dark');
   };
-
-  if (!mounted) {
-    return <div className="h-9 w-20 rounded-full border border-slate-300/60 bg-slate-200/60" />;
-  }
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      className="rounded-full border border-slate-300 bg-white/70 px-3 py-2 text-xs font-medium text-slate-700 transition hover:border-slate-400 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200"
-      aria-label="Toggle dark and light mode"
+      disabled={!mounted}
+      className="flex min-h-11 shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-light-border px-2 text-[11px] font-medium text-light-muted-text transition hover:border-light-accent hover:text-light-accent dark:border-dark-border dark:text-dark-muted-text dark:hover:border-dark-accent dark:hover:text-dark-accent"
+      aria-label={mounted ? `Switch to ${dark ? 'light' : 'dark'} mode` : 'Change color theme'}
     >
-      {dark ? 'Dark' : 'Light'} mode
+      <span aria-hidden="true" className="text-base">{mounted && dark ? '☀' : '☾'}</span>
+      <span className="hidden md:inline">{mounted ? (dark ? 'Light mode' : 'Dark mode') : 'Theme'}</span>
     </button>
   );
 }

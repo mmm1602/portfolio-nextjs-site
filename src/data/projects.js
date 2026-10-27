@@ -130,7 +130,7 @@ const rawProjects = [
     sourceUrl: 'https://github.com/mmm1602/Engine-Simulator-macOS',
     media: {
       type: 'image',
-      src: 'https://placehold.co/1200x800/111827/e5e7eb?text=Engine+Simulator+Preview',
+      src: '/projects/engine-schematic.svg',
     },
     gallery: [],
   },
@@ -148,9 +148,7 @@ const monthMap = {
  * @returns {Date} A Date object representing the start of the project.
  */
 function getProjectDate(period) {
-  if (!period || period.toLowerCase().includes('present')) {
-    return new Date(); // Sort "Present" projects as the most recent
-  }
+  if (!period) return new Date(0);
 
   const monthYearMatch = period.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})/);
   if (monthYearMatch) {

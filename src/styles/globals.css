@@ -3,46 +3,99 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    height: 100%;
-    color-scheme: light;
-  }
+  html { color-scheme: light; }
+  html.dark { @apply bg-dark-background text-dark-text; color-scheme: dark; }
+  body { min-height: 100vh; font-feature-settings: 'cv11' 1, 'ss01' 1; }
+  ::selection { @apply bg-light-accent/20 text-light-text; }
+  html.dark ::selection { @apply bg-dark-accent/20 text-dark-text; }
+  * { scrollbar-width: thin; scrollbar-color: #7c889c55 transparent; }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 2px solid #2f81f7; outline-offset: 5px; }
+}
 
-  html.dark {
-    @apply bg-dark-background text-dark-text;
-    color-scheme: dark;
-  }
+@layer components {
+  .portfolio-section { @apply relative mx-auto flex w-full max-w-6xl items-center px-6 py-12 md:px-10 md:py-14; min-height: 100%; }
+  .section-panel { @apply w-full rounded-3xl border border-light-border/70 bg-light-background/80 p-6 dark:border-dark-border/80 dark:bg-dark-background/80 sm:p-10; }
+  .section-label { @apply font-mono text-xs font-semibold uppercase tracking-[0.2em] text-light-accent dark:text-dark-accent; }
+  .section-title { @apply mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-light-text dark:text-dark-text sm:text-4xl; }
+  .button-primary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-light-accent px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-light-accent/90 dark:bg-dark-accent dark:hover:bg-dark-accent/90; }
+  .button-secondary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-light-border bg-light-background/70 px-6 py-3 text-sm font-semibold text-light-text transition hover:-translate-y-0.5 hover:border-light-accent hover:text-light-accent dark:border-dark-border dark:bg-dark-background/70 dark:text-dark-text dark:hover:border-dark-accent dark:hover:text-dark-accent; }
+}
 
-  body {
-    min-height: 100vh;
-    font-feature-settings: 'cv11' 1, 'ss01' 1;
-    scroll-snap-type: y mandatory;
-    height: 100%;
-    background: radial-gradient(circle at 50% -20%, rgba(9, 105, 218, 0.08), transparent 45%);
-  }
+.section-panel p:not(.section-label) { line-height: 1.75; }
+.project-dialog { width: min(1152px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 0; color: inherit; }
+.project-dialog::backdrop { background: #000b; backdrop-filter: blur(8px); }
 
-  ::selection {
-    @apply bg-light-accent/20 text-light-text;
-  }
+.flight-log {
+  --flight-bg: #f1f2f0; --flight-card: #fafbf9; --flight-ink: #202621;
+  --flight-muted: #747e77; --flight-line: #242c241f; --flight-accent: #2873cb;
+  position: fixed; inset: 0; display: flex; isolation: isolate;
+  background: var(--flight-bg); color: var(--flight-ink); overflow: hidden;
+}
+.dark .flight-log {
+  --flight-bg: #0c1013; --flight-card: #11171d; --flight-ink: #e2e8ed;
+  --flight-muted: #7b8995; --flight-line: #dce8f01a; --flight-accent: #81baff;
+}
+.flight-sidebar { position: relative; z-index: 10; display: flex; flex-direction: column; width: 180px; flex-shrink: 0; padding: 28px 24px; background: var(--flight-bg); }
+.flight-brand { width: fit-content; font-family: var(--font-space-grotesk), sans-serif; font-size: 27px; font-weight: 700; letter-spacing: -.08em; }
+.flight-brand span { color: var(--flight-accent); }
+.flight-sidebar nav { display: flex; flex-direction: column; gap: 5px; margin: auto -8px; }
+.flight-sidebar nav button { display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 8px; min-height: 48px; text-align: left; font-size: 12px; color: var(--flight-muted); transition: color .25s; }
+.flight-nav-number { display: none; font-family: var(--font-jetbrains-mono), monospace; font-size: 9px; opacity: .65; }
+.flight-sidebar nav button i { width: 4px; height: 4px; margin-left: auto; border-radius: 50%; background: currentColor; opacity: 0; }
+.flight-sidebar nav button[aria-current], .flight-sidebar nav button:hover { color: var(--flight-ink); }
+.flight-sidebar nav button[aria-current] i { opacity: 1; background: var(--flight-accent); box-shadow: 0 0 12px #81baff44; }
+.flight-sidebar-bottom { display: flex; }
+.flight-sidebar-bottom button { align-self: flex-start; border: 0; padding: 0 8px; }
+.flight-sidebar-bottom button > span:last-child { display: none; }
+.flight-workspace { position: relative; display: flex; flex: 1; flex-direction: column; min-width: 0; height: 100%; }
+.flight-viewport { position: relative; flex: 1; min-height: 0; perspective: 1800px; overflow: clip; }
+.flight-wheel { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+.flight-face { position: absolute; inset: 0; backface-visibility: hidden; background: var(--flight-card); border: 1px solid var(--flight-line); border-radius: 12px; box-shadow: 0 30px 100px #00000012; transition: opacity .4s; }
+.flight-document { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; outline-offset: -4px; }
+.flight-document:focus-visible { outline: none; }
+.flight-document > section { min-height: 100%; }
+.flight-card-open { position: absolute; inset: 0; z-index: 4; border-radius: inherit; cursor: zoom-in; }
+.flight-log[data-mode='expanded'] .flight-face:not([data-active='true']) { opacity: 0; visibility: hidden; }
+.flight-log[data-mode='expanded'] .flight-face[data-active='true'] { border-color: transparent; border-radius: 0; box-shadow: none; }
+.flight-log[data-mode='expanded'] .flight-card-open { display: none; }
+.flight-log[data-mode='expanded'] .flight-document { overflow-y: auto; overscroll-behavior: contain; }
+.flight-face .section-panel { border: 0; border-radius: 0; background: transparent; padding: 16px 0; box-shadow: none; }
+.flight-face .section-surface { isolation: isolate; }
+.flight-face .project-row { height: clamp(200px, 27dvh, 300px); }
+.flight-face #projects { padding-top: 32px; padding-bottom: 32px; }
+.flight-face .section-title { font-size: clamp(28px, 3.4vw, 48px); }
+.flight-face #hero h1 { font-size: clamp(42px, 5.5vw, 80px); }
+.flight-toolbar { position: absolute; z-index: 5; right: 28px; bottom: 20px; }
+.flight-actions { display: flex; align-items: center; gap: 18px; }
+.flight-actions button { min-height: 44px; font-size: 11px; }
+.flight-auto { color: var(--flight-muted); }
+.flight-auto { width: 44px; font-size: 15px !important; }
+.flight-enter { color: var(--flight-ink); }
 
-  html.dark ::selection {
-    @apply bg-dark-accent/20 text-dark-text;
-  }
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(101, 109, 118, 0.45) transparent;
-  }
-
-  *::-webkit-scrollbar {
-    width: 9px;
-    height: 9px;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background: rgba(101, 109, 118, 0.45);
-    border-radius: 999px;
-  }
+@media (max-width: 1000px) {
+  .flight-sidebar { width: 160px; padding: 24px 16px; }
+  .flight-sidebar nav button { font-size: 11px; gap: 9px; }
+}
+@media (max-width: 600px) {
+  .flight-sidebar { width: 62px; padding: 18px 10px; }
+  .flight-brand { font-size: 22px; }
+  .flight-sidebar nav button > span:nth-child(2) { display: none; }
+  .flight-sidebar nav { margin: auto 0; }
+  .flight-sidebar nav button { justify-content: center; position: relative; padding: 13px 0; }
+  .flight-nav-number { display: block; font-size: 11px; }
+  .flight-sidebar nav button i { position: absolute; right: 0; width: 3px; height: 3px; }
+  .flight-sidebar-bottom button { padding: 4px 10px; }
+  .flight-toolbar { right: 18px; bottom: 14px; }
+  .flight-actions { gap: 12px; }
+  .flight-face .portfolio-section { padding: 40px 20px; }
+  .flight-face .section-title { font-size: 26px; }
+  .flight-face #hero h1 { font-size: 36px; }
+  .flight-face #hero p { font-size: 14px; }
+  .flight-face .button-primary, .flight-face .button-secondary { padding-left: 18px; padding-right: 18px; font-size: 12px; }
+  .flight-face #projects { padding: 40px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .flight-face:not([data-active='true']) { visibility: hidden; }
 }

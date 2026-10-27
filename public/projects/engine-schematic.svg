@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#26364a" stroke-width="1"/></pattern>
+    <linearGradient id="heat" x2="0" y2="1"><stop stop-color="#2f81f7" stop-opacity=".45"/><stop offset="1" stop-color="#2f81f7" stop-opacity=".05"/></linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="#0d1623"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <g transform="translate(480 100)" fill="none" stroke="#8ebcff" stroke-width="5">
+    <path d="M-10 300V0H230V300"/>
+    <path d="M10 20H210V190H10Z" fill="url(#heat)" stroke="none"/>
+    <rect x="10" y="190" width="200" height="60" rx="6" fill="#263d59"/>
+    <path d="M10 207H210M10 228H210M110 250V330L180 410"/>
+    <circle cx="110" cy="410" r="90" stroke="#4c6b92"/>
+    <circle cx="110" cy="410" r="16" fill="#2f81f7"/>
+    <circle cx="180" cy="410" r="12" fill="#8ebcff"/>
+    <path d="M45 0V-30M175 0V-30" stroke="#2f81f7"/>
+  </g>
+  <g fill="#8ebcff" font-family="monospace" font-size="16" letter-spacing="3">
+    <text x="72" y="80">ENGINE CYCLE / SCHEMATIC</text>
+    <text x="790" y="175">COMBUSTION</text>
+    <text x="790" y="320">PISTON</text>
+    <text x="790" y="525">CRANKSHAFT</text>
+  </g>
+  <g fill="none" stroke="#4c6b92" stroke-width="2"><path d="M720 165H765M720 315H765M710 520H765"/></g>
+</svg>

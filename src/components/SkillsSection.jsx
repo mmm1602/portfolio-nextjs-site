@@ -1,5 +1,6 @@
 // /src/components/SkillsSection.jsx
 'use client';
+import StickySection from '@/components/StickySection';
 
 /**
  * Renders the skills section, showcasing engineering capabilities.
@@ -7,11 +8,11 @@
  */
 export default function SkillsSection() {
   return (
-    <section id="skills" className="sticky mx-auto mt-8 flex min-h-screen w-full max-w-6xl items-center px-6 py-12 md:pl-36 md:pr-10">
-      <div className="w-full rounded-3xl border border-light-border/80 bg-light-background/75 p-7 shadow-[0_12px_36px_rgba(2,6,23,0.08)] backdrop-blur dark:border-dark-border/80 dark:bg-dark-background/70 md:p-9">
-        <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-light-accent dark:text-dark-accent">Core Skills</p>
-        <h2 className="font-display mt-2 text-2xl font-bold tracking-tight text-light-text dark:text-dark-text md:text-3xl">Engineering Capabilities</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <StickySection id="skills" className="portfolio-section">
+      <div className="section-panel">
+        <p className="section-label">Core Skills</p>
+        <h2 className="section-title">Engineering Capabilities</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {/* Skill: Design */}
           <div className="rounded-xl border border-light-border/80 bg-light-background/75 p-4 transition hover:-translate-y-0.5 hover:shadow-md dark:border-dark-border/80 dark:bg-dark-background/60">
             <p className="text-xs uppercase tracking-[0.14em] text-light-accent dark:text-dark-accent">Design</p>
@@ -34,6 +35,6 @@ export default function SkillsSection() {
           </div>
         </div>
       </div>
-    </section>
+    </StickySection>
   );
 }

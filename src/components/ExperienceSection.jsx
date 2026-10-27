@@ -1,5 +1,6 @@
 // /src/components/ExperienceSection.jsx
 'use client';
+import StickySection from '@/components/StickySection';
 
 /**
  * Renders the experience timeline section.
@@ -7,10 +8,10 @@
  */
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="sticky mx-auto mt-8 flex min-h-screen w-full max-w-6xl items-center px-6 py-12 md:pl-36 md:pr-10">
-      <div className="w-full rounded-3xl border border-light-border/80 bg-light-background/75 p-7 shadow-[0_12px_36px_rgba(2,6,23,0.08)] backdrop-blur dark:border-dark-border/80 dark:bg-dark-background/70 md:p-9">
-        <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-light-accent dark:text-dark-accent">Timeline</p>
-        <h2 className="font-display mt-2 text-2xl font-bold tracking-tight text-light-text dark:text-dark-text md:text-3xl">Experience Timeline</h2>
+    <StickySection id="experience" className="portfolio-section">
+      <div className="section-panel">
+        <p className="section-label">Timeline</p>
+        <h2 className="section-title">Experience Timeline</h2>
         <ol className="relative mt-6 space-y-4 border-l border-light-border pl-4 dark:border-dark-border">
           {/* Experience Item 1 */}
           <li className="relative rounded-xl border border-light-border/80 bg-light-background/75 p-4 dark:border-dark-border/80 dark:bg-dark-background/60">
@@ -35,6 +36,6 @@ export default function ExperienceSection() {
           </li>
         </ol>
       </div>
-    </section>
+    </StickySection>
   );
 }
